@@ -1,0 +1,21 @@
+<ion-view view-title="Lista de Quizes" ng-controller='ListQuizCtrl'>
+    <ion-content>
+        <ion-list>
+            <ion-item
+                ng-repeat="quiz in quizzes track by quiz.id"
+                ng-click="selectQuiz(quiz)">
+
+                <div class="row row-no-padding">
+                    <div class="col-10">
+                        <span class="bullet-hard"></span>
+                    </div>
+                    <div class="col-90">
+                        <h3>{{quiz.subject}}</h3>
+                        <p>{{quiz.level}}</p>
+                    </div>
+                </div>
+
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

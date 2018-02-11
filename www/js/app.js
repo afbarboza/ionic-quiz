@@ -3,6 +3,21 @@
 (function () {
     var app = angular.module( 'quiz', [ 'ionic' ] );
 
+    /**
+     * $stateProvider allow us to define news states.
+     *
+     */
+    app.config(function ( $stateProvider, $urlRouterProvider ) {
+
+        $stateProvider.state('list', {
+            url: '/list',
+            templateUrl: 'list.html',
+            controller: 'ListQuizCtrl'
+        });
+
+        $urlRouterProvider.otherwise('list');
+    });
+    
     app.controller('ListQuizCtrl', function ( $scope ) {
        $scope.quizzes = [
            {
@@ -27,7 +42,13 @@
         }
     });
 
-    app.run( function ( $ionicPlatform ) {
+    app.run( function ( $ionicPlatform, $rootScope ) {
+        $rootScope.$on("$stateChangeError", function(event, toState, toParams, fromState, fromParams, error) {
+            console.log("stateChangeError:");
+            console.log(arguments);
+        });
+
+
         $ionicPlatform.ready( function () {
             if ( window.cordova && window.cordova.plugins.Keyboard ) {
                 cordova.plugins.Keyboard.hideKeyboardAccessoryBar( true );
