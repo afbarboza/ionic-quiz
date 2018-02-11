@@ -23,17 +23,20 @@
            {
                id: 0,
                subject: 'Matemática',
-               level: 'hard'
+               level: 'hard',
+               done: true
            },
            {
                id: 1,
                subject: 'Geografia',
                level: 'medium',
+               done: false
            },
            {
                id: 2,
                subject: 'Física',
-               level: 'easy'
+               level: 'easy',
+               done: false
            }
        ];
 
@@ -43,12 +46,6 @@
     });
 
     app.run( function ( $ionicPlatform, $rootScope ) {
-        $rootScope.$on("$stateChangeError", function(event, toState, toParams, fromState, fromParams, error) {
-            console.log("stateChangeError:");
-            console.log(arguments);
-        });
-
-
         $ionicPlatform.ready( function () {
             if ( window.cordova && window.cordova.plugins.Keyboard ) {
                 cordova.plugins.Keyboard.hideKeyboardAccessoryBar( true );

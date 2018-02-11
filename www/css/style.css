@@ -1,10 +1,8 @@
 /* Empty. Add your own CSS if you like */
-.bullet-hard {
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    position: absolute;
-    background-color: blue;
-    border-radius: 50%;
-    margin-top: 5%;
+.quiz-status {
+   font-size: 16px !important;
+}
+
+.ion-content-workaround-bug {
+    top: 3% !important;
 }

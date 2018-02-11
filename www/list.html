@@ -1,21 +1,24 @@
 <ion-view view-title="Lista de Quizes" ng-controller='ListQuizCtrl'>
-    <ion-content>
+    <ion-nav-title>Lista de Quizes</ion-nav-title>
+    <ion-content class="ion-content-workaround-bug">
         <ion-list>
             <ion-item
                 ng-repeat="quiz in quizzes track by quiz.id"
-                ng-click="selectQuiz(quiz)">
+                ng-click="selectQuiz(quiz)"
+                class="item-icon-left">
+                <i class="icon icon-left ion-android-done-all quiz-status"
+                    ng-if="quiz.done"></i>
+                <i class="icon icon-left ion-ios-compose-outline quiz-status"
+                   ng-if="!quiz.done"></i>
 
-                <div class="row row-no-padding">
-                    <div class="col-10">
-                        <span class="bullet-hard"></span>
-                    </div>
-                    <div class="col-90">
-                        <h3>{{quiz.subject}}</h3>
-                        <p>{{quiz.level}}</p>
-                    </div>
-                </div>
-
+                <h3>{{quiz.subject}}</h3>
+                <p>{{quiz.level}}</p>
             </ion-item>
         </ion-list>
     </ion-content>
+    <div class="bar bar-footer bar-stable">
+        <a class="button button-positive icon-left ion-ios-plus-outline">
+            Adicionar
+        </a>
+    </div>
 </ion-view>
